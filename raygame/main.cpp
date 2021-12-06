@@ -15,7 +15,7 @@
 int main()
 {
 	//Hides Console window
-	//ShowWindow(GetConsoleWindow(), SW_HIDE);
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
 
 	Engine game = Engine();
 
