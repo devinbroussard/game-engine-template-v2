@@ -34,7 +34,7 @@ void Actor::onCollision(Actor* other)
 
 Component* Actor::addComponent(Component* component)
 {
-    if (component->getOwner != nullptr)
+    if (component->getOwner()->getName() != this->m_name)
         return nullptr;
 
     Component** tempArray = new Component* [m_componentCount + 1];
@@ -55,7 +55,7 @@ Component* Actor::addComponent(Component* component)
 
 bool Actor::removeComponent(Component* component)
 {
-    if (component->getOwner != nullptr)
+    if (component->getOwner()->getName() != this->m_name)
         return false;
 
     bool componentRemoved = false;
