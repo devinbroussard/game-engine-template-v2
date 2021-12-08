@@ -9,60 +9,90 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{d0e7bc55-6b19-44cf-a90c-95a549ed63ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Actors">
+      <UniqueIdentifier>{51ce61ce-f420-493c-ae74-cfb1f18233b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scenes">
+      <UniqueIdentifier>{24512f4f-e40a-422e-95dc-5ab040f726de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Math/Engine">
+      <UniqueIdentifier>{04958672-67a8-4474-a475-a6d138dfed9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Collider">
+      <UniqueIdentifier>{cb61c963-108b-46a6-aec7-b609a087b0c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{262fda85-40d2-4fed-b1e9-3d6bc8f549de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Actors">
+      <UniqueIdentifier>{ede5973a-ef42-4f5a-8d68-2ec85e30bfda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Math/Engine">
+      <UniqueIdentifier>{f3984bd2-3ace-4feb-8ac9-ded9f34a4b11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Collider">
+      <UniqueIdentifier>{1b734e53-af16-42d3-b2c7-729bf606d48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{ddf2c317-9c37-4e8c-ab33-97f61890fa99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Transform2D.cpp">
+      <Filter>Source Files\Math/Engine</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\Math/Engine</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Math/Engine</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Collider</Filter>
     </ClCompile>
     <ClCompile Include="CircleCollider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Collider</Filter>
     </ClCompile>
     <ClCompile Include="AABBCollider.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="Transform2D.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Source Files\Actors</Filter>
     </ClCompile>
     <ClCompile Include="ActorArray.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Math/Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CircleCollider.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AABBCollider.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Transform2D.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Math/Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files\Math/Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider.h">
+      <Filter>Header Files\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="AABBCollider.h">
+      <Filter>Header Files\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Header Files\Actors</Filter>
     </ClInclude>
     <ClInclude Include="ActorArray.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Math/Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
