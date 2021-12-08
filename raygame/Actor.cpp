@@ -2,6 +2,7 @@
 #include "Transform2D.h"
 #include <string.h>
 #include "Collider.h"
+#include "Component.h"
 
 Actor::Actor()
 {
@@ -29,6 +30,73 @@ void Actor::start()
 
 void Actor::onCollision(Actor* other)
 {
+}
+
+Component* Actor::addComponent(Component* component)
+{
+    if (component->getOwner != nullptr)
+        return nullptr;
+
+    Component** tempArray = new Component* [m_componentCount + 1];
+    
+    int j = 0;
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        tempArray[i] = m_components[i];
+        j++;
+    }
+
+    tempArray[j] = component;
+    m_componentCount + 1;
+    m_components = tempArray;
+
+	return component;
+}
+
+bool Actor::removeComponent(Component* component)
+{
+    if (component->getOwner != nullptr)
+        return false;
+
+    bool componentRemoved = false;
+    //Create a new array with a size one less than our old array
+    Component** newArray = new Component* [m_componentCount - 1];
+
+    //Create variable to access tempArray index
+    int j = 0;
+    //Copy values from the old array to the new array
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        if (component != m_components[i])
+        {
+            newArray[j] = m_components[i];
+            j++;
+        }
+        else
+        {
+            componentRemoved = true;
+        }
+    }
+    //Set the old array to the new array
+    if (componentRemoved)
+    {
+        m_components = newArray;
+        m_componentCount--;
+    }
+    //Return whether or not the removal was successful
+    return componentRemoved;
+}
+
+Component* Actor::getComponent(const char*)
+{
+    Component* componentPtr;
+
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        
+    }
+
+    return nullptr;
 }
 
 void Actor::update(float deltaTime)
