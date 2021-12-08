@@ -87,15 +87,13 @@ bool Actor::removeComponent(Component* component)
     return componentRemoved;
 }
 
-Component* Actor::getComponent(const char*)
+Component* Actor::getComponent(const char* name)
 {
-    Component* componentPtr;
-
     for (int i = 0; i < m_componentCount; i++)
     {
-        
+        if (m_components[i]->getName() == name)
+            return m_components[i];
     }
-
     return nullptr;
 }
 
