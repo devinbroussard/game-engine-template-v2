@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "Transform2D.h"
 #include "Player.h"
+#include "Enemy.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -30,7 +31,9 @@ void Engine::start()
 	Scene* scene = new Scene();
 	
 	Player* player = new Player(10, 10, "player", 400, 10);
+	Enemy* enemy = new Enemy(10, 100, "enemy", 200, 10, player);
 	scene->addActor(player);
+	scene->addActor(enemy);
 
 	//Start the scene
 	m_currentSceneIndex = addScene(scene);
