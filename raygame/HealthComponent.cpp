@@ -1,7 +1,7 @@
 #include "HealthComponent.h"
 
 HealthComponent::HealthComponent(int maxHealth, Actor* owner) :
-	Component::Component(this, "Health Component")
+	Component::Component(owner, "Health Component")
 {
 	m_maxHealth = maxHealth;
 }
