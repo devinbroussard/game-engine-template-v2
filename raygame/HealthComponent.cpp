@@ -4,6 +4,9 @@ HealthComponent::HealthComponent(int maxHealth, Actor* owner) :
 	Component::Component(owner, "Health Component")
 {
 	m_maxHealth = maxHealth;
+	m_currentHealth = maxHealth;
+	m_damageCooldown = 2;
+	m_timeSinceDamage = 0;
 }
 
 HealthComponent::~HealthComponent()

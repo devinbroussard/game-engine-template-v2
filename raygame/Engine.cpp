@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include "raylib.h"
 #include "Transform2D.h"
+#include "Character.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -26,8 +27,13 @@ void Engine::start()
 	InitWindow(screenWidth, screenHeight, "Intro To C++");
 	SetTargetFPS(0);
 
+	Scene* scene = new Scene();
+	
+	Character* player = new Character(10, 10, "player", 5, 10);
+	scene->addActor(player);
+
 	//Start the scene
-	m_currentSceneIndex = addScene(new Scene());
+	m_currentSceneIndex = addScene(scene);
 	m_scenes[m_currentSceneIndex]->start();
 }
 

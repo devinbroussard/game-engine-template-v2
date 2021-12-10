@@ -21,6 +21,7 @@ Actor::Actor(float x, float y, const char* name = "Actor")
     m_transform = new Transform2D(this);
     m_transform->setLocalPosition({ x,y });
     m_name = name;
+    m_componentCount = 0;
 }
 
 void Actor::start()
@@ -47,7 +48,7 @@ Component* Actor::addComponent(Component* component)
     }
 
     tempArray[j] = component;
-    m_componentCount + 1;
+    m_componentCount++;
     m_components = tempArray;
 
 	return component;
@@ -99,10 +100,18 @@ Component* Actor::getComponent(const char* name)
 
 void Actor::update(float deltaTime)
 {
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        m_components[i]->update(deltaTime);
+    }
 }
 
 void Actor::draw()
 {
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        m_components[i]->draw();
+    }
 }
 
 void Actor::end()

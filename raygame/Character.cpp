@@ -19,11 +19,18 @@ void Character::start()
 {
 	HealthComponent* healthComponent = new HealthComponent(m_maxHealth, this);
 	addComponent(healthComponent);
-	MoveComponent* moveComponent = new MoveComponent(this, 4);
+	MoveComponent* moveComponent = new MoveComponent(this, 0.1f);
 	addComponent(moveComponent);
-	Spr
+	SpriteComponent* spriteComponent = new SpriteComponent("Sprites/player.png", this);
+	addComponent(spriteComponent);
 }
 
 void Character::update(float deltaTime)
 {
+	Actor::update(deltaTime);
+}
+
+void Character::draw()
+{
+	Actor::draw();
 }

@@ -14,7 +14,7 @@ public:
 	int getWidth() { return m_texture.width; }
 	int getHeight() { return m_texture.height; }
 
-	void draw(Transform2D transform);
+	void draw() override;
 
 private:
 	int setWidth(int width) { m_texture.width = width; }

@@ -3,12 +3,12 @@
 #include "Transform2D.h"
 
 SpriteComponent::SpriteComponent(const char* path, Actor* owner) :
-	Component::Component("Sprite Component", owner)
+	Component::Component(owner, "Sprite Component")
 {
 	m_texture = RAYLIB_H::LoadTexture(path);
 }
 
-void SpriteComponent::draw(Transform2D transform)
+void SpriteComponent::draw()
 {
-	RAYLIB_H::DrawTexture(m_texture, transform.getWorldPosition().x, transform.getWorldPosition().y, WHITE);
+	RAYLIB_H::DrawTexture(m_texture, getOwner()->getTransform()->getWorldPosition().x, getOwner()->getTransform()->getWorldPosition().y, WHITE);
 }

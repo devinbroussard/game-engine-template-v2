@@ -9,6 +9,7 @@ public:
 
 	void start();
 	void update(float deltaTime);
+	void draw();
 
 private:
 	int m_speed;

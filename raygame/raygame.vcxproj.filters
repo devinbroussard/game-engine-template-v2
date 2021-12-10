@@ -39,6 +39,9 @@
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{ddf2c317-9c37-4e8c-ab33-97f61890fa99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sprites">
+      <UniqueIdentifier>{5fadd7d6-6053-4f67-a1db-adf6bd9482d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Transform2D.cpp">
@@ -80,6 +83,9 @@
     <ClCompile Include="MoveComponent.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -118,5 +124,19 @@
     <ClInclude Include="MoveComponent.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Sprites\bullet.png">
+      <Filter>Sprites</Filter>
+    </Image>
+    <Image Include="..\Sprites\enemy.png">
+      <Filter>Sprites</Filter>
+    </Image>
+    <Image Include="..\Sprites\player.png">
+      <Filter>Sprites</Filter>
+    </Image>
   </ItemGroup>
 </Project>
