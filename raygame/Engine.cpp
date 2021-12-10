@@ -1,7 +1,7 @@
 #include "Engine.h"
 #include "raylib.h"
 #include "Transform2D.h"
-#include "Character.h"
+#include "Player.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -29,7 +29,7 @@ void Engine::start()
 
 	Scene* scene = new Scene();
 	
-	Character* player = new Character(10, 10, "player", 5, 10);
+	Player* player = new Player(10, 10, "player", 400, 10);
 	scene->addActor(player);
 
 	//Start the scene
