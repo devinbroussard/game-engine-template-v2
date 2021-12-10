@@ -15,6 +15,9 @@ Character::~Character()
 {
 }
 
+/// <summary>
+/// Adds all of the character's components to its components array
+/// </summary>
 void Character::start()
 {
 	HealthComponent* healthComponent = new HealthComponent(m_maxHealth, this);
@@ -25,11 +28,18 @@ void Character::start()
 	addComponent(spriteComponent);
 }
 
+/// <summary>
+/// Called every frame
+/// </summary>
+/// <param name="deltaTime">The amount of time that has passed between frames</param>
 void Character::update(float deltaTime)
 {
 	Actor::update(deltaTime);
 }
 
+/// <summary>
+/// Called every frame
+/// </summary>
 void Character::draw()
 {
 	Actor::draw();
