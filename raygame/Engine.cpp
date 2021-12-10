@@ -74,7 +74,7 @@ void Engine::run()
 	while (!m_applicationShouldClose && !RAYLIB_H::WindowShouldClose())
 	{
 		//Calculate deltatime
-		float deltaTime = RAYLIB_H::GetFrameTime();
+		float deltaTime = RAYLIB_H::GetFrameTime() / 1000;
 
 		//Update scene
 		update(deltaTime);

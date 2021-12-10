@@ -19,7 +19,7 @@ void Character::start()
 {
 	HealthComponent* healthComponent = new HealthComponent(m_maxHealth, this);
 	addComponent(healthComponent);
-	MoveComponent* moveComponent = new MoveComponent(this, 0.1f);
+	MoveComponent* moveComponent = new MoveComponent(this, 5);
 	addComponent(moveComponent);
 	SpriteComponent* spriteComponent = new SpriteComponent("Sprites/player.png", this);
 	addComponent(spriteComponent);
