@@ -8,8 +8,8 @@ class SpriteComponent :
 	public Component
 {
 public:
-	SpriteComponent(const char* path, const char* name);
-	SpriteComponent(Texture2D* texture, const  char* name);
+	SpriteComponent(const char* path, const char* name = "SpriteComponent");
+	SpriteComponent(Texture2D* texture, const  char* name = "SpriteComponent");
 	~SpriteComponent() override;
 
 	int getWidth() { return m_width; }

@@ -3,13 +3,13 @@
 #include "Transform2D.h"
 #include <cmath>
 
-SpriteComponent::SpriteComponent(const char* path, const char* name = "SpriteComponent") :
+SpriteComponent::SpriteComponent(const char* path, const char* name) :
 	Component::Component(name)
 {
 	m_texture = &RAYLIB_H::LoadTexture(path);
 }
 
-SpriteComponent::SpriteComponent(Texture2D* texture, const char* name = "SpriteComponent") :
+SpriteComponent::SpriteComponent(Texture2D* texture, const char* name) :
 	Component::Component(name)
 {
 	m_texture = texture;

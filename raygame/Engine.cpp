@@ -1,9 +1,8 @@
 #include "Engine.h"
 #include "raylib.h"
-#include "Transform2D.h"
-#include "Player.h"
-#include "Enemy.h"
+#include "MainScene.h"
 #include <iostream>
+#include "Transform2D.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -29,15 +28,8 @@ void Engine::start()
 	InitWindow(screenWidth, screenHeight, "Intro To C++");
 	SetTargetFPS(0);
 
-	Scene* scene = new Scene();
-	
-	Player* player = new Player(10, 10, "player", 100, 10);
-	Enemy* enemy = new Enemy(10, 100, "enemy", 60, 10, player);
-	scene->addActor(player);
-	scene->addActor(enemy);
-
 	//Start the scene
-	m_currentSceneIndex = addScene(scene);
+	m_currentSceneIndex = addScene(new MainScene());
 	m_scenes[m_currentSceneIndex]->start();
 }
 
