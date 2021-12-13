@@ -12,5 +12,10 @@ public:
 	MathLibrary::Vector2 getMoveAxis();
 	void update(float deltaTime) override;
 
+private:
+	RAYLIB_H::KeyboardKey m_forward = RAYLIB_H::KeyboardKey::KEY_W;
+	RAYLIB_H::KeyboardKey m_left = RAYLIB_H::KeyboardKey::KEY_A;
+	RAYLIB_H::KeyboardKey m_back = RAYLIB_H::KeyboardKey::KEY_S;
+	RAYLIB_H::KeyboardKey m_right = RAYLIB_H::KeyboardKey::KEY_D;
 };
 

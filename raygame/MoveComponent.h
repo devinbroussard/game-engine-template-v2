@@ -7,7 +7,7 @@ class MoveComponent :
 	public Component
 {
 public:
-	MoveComponent(Actor* owner, const char* name = "MoveComponent") : Component::Component(name) { m_maxSpeed = 0; }
+	MoveComponent(const char* name = "MoveComponent");
 
 	/// <summary>
 	/// Gets the current speed and directino of this actor

@@ -6,13 +6,17 @@
 SpriteComponent::SpriteComponent(const char* path, const char* name) :
 	Component::Component(name)
 {
-	m_texture = &RAYLIB_H::LoadTexture(path);
+	m_texture = new Texture2D(RAYLIB_H::LoadTexture(path));
+	m_height = m_texture->height;
+	m_width = m_texture->width;
 }
 
 SpriteComponent::SpriteComponent(Texture2D* texture, const char* name) :
 	Component::Component(name)
 {
 	m_texture = texture;
+	m_height = m_texture->height;
+	m_width = m_texture->width;
 }
 
 SpriteComponent::~SpriteComponent()
@@ -37,7 +41,7 @@ void SpriteComponent::draw()
 	MathLibrary::Vector2 position = getOwner()->getTransform()->getWorldPosition();
 
 	position = position - (forward * getWidth() / 2);
-	position = position - (up * getHeight() / 2);
+	position = position - (up.getNormalized() * getHeight() / 2);
 	RAYLIB_H::Vector2 rayPos = { position.x, position.y };
 
 	//Rotation

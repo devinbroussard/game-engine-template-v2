@@ -1,7 +1,6 @@
 #include "Engine.h"
 #include "raylib.h"
 #include "MainScene.h"
-#include <iostream>
 #include "Transform2D.h"
 
 bool Engine::m_applicationShouldClose = false;
@@ -71,7 +70,6 @@ void Engine::run()
 	{
 		//Calculate deltatime
 		float deltaTime = RAYLIB_H::GetFrameTime();
-		std::cout << deltaTime;
 
 		//Update scene
 		update(deltaTime);

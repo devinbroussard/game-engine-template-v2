@@ -1,5 +1,7 @@
 #pragma once
 #include "Character.h"
+class InputComponent;
+
 class Player :
 	public Character
 {
@@ -8,5 +10,8 @@ public:
 	~Player() {};
 
 	void start() override;
+	void update(float deltaTime) override;
+private:
+	InputComponent* m_inputComponent;
 };
 

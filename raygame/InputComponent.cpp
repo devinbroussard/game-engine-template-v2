@@ -8,9 +8,11 @@ InputComponent::InputComponent(Actor* owner) :
 
 MathLibrary::Vector2 InputComponent::getMoveAxis()
 {
+	//Get the direction of the individual axis
 	float xDirection = -RAYLIB_H::IsKeyDown(KEY_A) + RAYLIB_H::IsKeyDown(KEY_D);
 	float yDirection = RAYLIB_H::IsKeyDown(KEY_S) - RAYLIB_H::IsKeyDown(KEY_W);
 
+	//Return a new vector representing the move direction
 	return MathLibrary::Vector2(xDirection, yDirection);
 }
 

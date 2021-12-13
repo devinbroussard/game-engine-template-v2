@@ -36,8 +36,7 @@ void Actor::onCollision(Actor* other)
 Component* Actor::addComponent(Component* component)
 {
     Actor* owner = component->getOwner();
-    if (owner)
-        return nullptr;
+    if (owner) return nullptr;
 
     component->assignOwner(this);
     Component** tempArray = new Component* [m_componentCount + 1];
@@ -49,7 +48,15 @@ Component* Actor::addComponent(Component* component)
         j++;
     }
 
+    //Set the last value in the new array to be the actor we want to add
     tempArray[j] = component;
+
+    if (m_componentCount > 1)
+        //Set old array to hold the values of the new array
+        delete[] m_components;
+    else if (m_componentCount == 1)
+        delete m_components;
+
     m_componentCount++;
     m_components = tempArray;
 
@@ -82,11 +89,14 @@ bool Actor::removeComponent(Component* component)
     //Set the old array to the new array
     if (componentRemoved)
     {
+        delete[] m_components;
         m_components = newArray;
         m_componentCount--;
         delete component; 
     }
-    delete[] newArray;
+    else 
+        delete[] newArray;
+
     //Return whether or not the removal was successful
     return componentRemoved;
 }
@@ -119,12 +129,13 @@ bool Actor::removeComponent(const char* name)
     //Set the old array to the new array
     if (componentRemoved)
     {
+        delete[] m_components;
         m_components = newArray;
         m_componentCount--;
         delete componentToDelete;
     }
-
-    delete[] newArray;
+    else 
+        delete[] newArray;
     //Return whether or not the removal was successful
     return componentRemoved;
 }

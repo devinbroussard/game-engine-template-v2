@@ -15,17 +15,18 @@ Character::~Character()
 {
 }
 
+void Character::setVelocity(float x, float y)
+{
+}
+
 /// <summary>
 /// Adds all of the character's components to its components array
 /// </summary>
 void Character::start()
 {
-	HealthComponent* healthComponent = new HealthComponent(m_maxHealth, this);
-	addComponent(healthComponent);
-	MoveComponent* moveComponent = new MoveComponent(this);
-	addComponent(moveComponent);
-	SpriteComponent* spriteComponent = new SpriteComponent("Sprites/player.png");
-	addComponent(spriteComponent);
+	HealthComponent* healthComponent = dynamic_cast<HealthComponent*>(addComponent(new HealthComponent(m_maxHealth, this)));
+	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
+	SpriteComponent* spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Sprites/player.png")));
 
 	Actor::start();
 }
