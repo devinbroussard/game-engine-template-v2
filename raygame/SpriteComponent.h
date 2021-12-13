@@ -9,7 +9,7 @@ class SpriteComponent :
 {
 public:
 	SpriteComponent(const char* path, const char* name);
-	SpriteComponent(Texture2D* texture, const  char* name) : Component::Component(name);
+	SpriteComponent(Texture2D* texture, const  char* name);
 	~SpriteComponent() override;
 
 	int getWidth() { return m_width; }
