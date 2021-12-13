@@ -9,9 +9,9 @@ public:
     Actor();
     ~Actor();
 
-    /// <param name="x">Position on the x axis</param>
-    /// <param name="y">Position on the y axis</param>
-    /// <param name="name">The name of this actor.</param>
+    /// <param componentName="x">Position on the x axis</param>
+    /// <param componentName="y">Position on the y axis</param>
+    /// <param componentName="componentName">The componentName of this actor.</param>
     Actor(float x, float y, const char* name);
 
     /// <summary>
@@ -30,14 +30,21 @@ public:
     /// <summary>
     /// Sets this actors collider
     /// </summary>
-    /// <param name="collider">The new collider to attach to the actor</param>
+    /// <param componentName="collider">The new collider to attach to the actor</param>
     void setCollider(Collider* collider) { m_collider = collider; }
 
     /// <summary>
-    /// Gets the name of this actor
+    /// Gets the componentName of this actor
     /// </summary>
     /// <returns></returns>
     const char* getName() { return m_name; }
+
+    /// <summary>
+    /// Sets the actor's componentName
+    /// </summary>
+    /// <param componentName="componentName"></param>
+    /// <returns></returns>
+    const char* setName(const char* name) { m_name = name; }
 
     /// <summary>
     /// Called during the first update after an actor is added to a scene.
@@ -47,7 +54,7 @@ public:
     /// <summary>
     /// Called every frame
     /// </summary>
-    /// <param name="deltaTime">The time that has passed from the previous frame to the current</param>
+    /// <param componentName="deltaTime">The time that has passed from the previous frame to the current</param>
     virtual void update(float deltaTime);
 
     /// <summary>
@@ -68,20 +75,41 @@ public:
     /// <summary>
     /// Checks if a collision occured between this actor and another
     /// </summary>
-    /// <param name="other">The actor to check collision against</param>
+    /// <param componentName="other">The actor to check collision against</param>
     virtual bool checkForCollision(Actor* other);
 
     /// <summary>
     /// Called when a collision between this actor and another occurs. 
     /// </summary>
-    /// <param name="other">The actor this actor collided with.</param>
+    /// <param componentName="other">The actor this actor collided with.</param>
     virtual void onCollision(Actor* other);
 
+    /// <summary>
+    /// Adds a component to the actor's components array
+    /// </summary>
+    /// <param componentName="component"></param>
+    /// <returns></returns>
     Component* addComponent(Component* component);
 
+    /// <summary>
+    /// Removes a component from the actor's components array if the component pointer matches the given pointer
+    /// </summary>
+    /// <param componentName="component">The component pointer that you want to remove</param>
+    /// <returns>Whether or not the component was removed from the array</returns>
     bool removeComponent(Component* component);
 
-    Component* getComponent(const char* name);
+    /// <summary>
+    /// Removes a component from the actor's component array if the compent's componentName matches the given componentName
+    /// </summary>
+    /// <param componentName="componentName">The componentName of the component pointer you wish to delete</param>
+    /// <returns>Whether or no thte component was removed from the array</returns>
+    bool removeComponent(const char* componentName);
+
+    /// <summary>
+    /// Creates a component pointer from the pointer in the actor's array that matches the componentName given
+    /// </summary>
+    /// <param componentName="componentName">The componentName of the component you wish to get</param>
+    Component* getComponent(const char* componentName);
 
 protected:
     const char* m_name;
@@ -91,6 +119,6 @@ private:
     Transform2D* m_transform;
     Collider* m_collider;
     Component** m_components;
-    int m_componentCount;
+    unsigned int m_componentCount;
 };
 

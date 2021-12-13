@@ -2,6 +2,7 @@
 #include "Actor.h"
 #include <Vector2.h>
 
+
 class Character :
 	public Actor
 {

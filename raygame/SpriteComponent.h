@@ -1,25 +1,25 @@
 #pragma once
 #include "Component.h"
 #include <raylib.h>
-class Actor;
+#include <Matrix3.h>
 class Transform2D;
 
 class SpriteComponent :
 	public Component
 {
 public:
-	SpriteComponent(const char* path, Actor* owner);
-	~SpriteComponent() {}
+	SpriteComponent(const char* path, const char* name);
+	SpriteComponent(Texture2D* texture, const  char* name) : Component::Component(name);
+	~SpriteComponent() override;
 
-	int getWidth() { return m_texture.width; }
-	int getHeight() { return m_texture.height; }
+	int getWidth() { return m_width; }
+	int getHeight() { return m_height; }
 
 	void draw() override;
 
 private:
-	int setWidth(int width) { m_texture.width = width; }
-	int setHeight(int height) { m_texture.height = height; }
-
-	Texture2D m_texture;
+	Texture2D* m_texture;
+	int m_width;
+	int m_height;
 };
 

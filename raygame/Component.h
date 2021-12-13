@@ -7,7 +7,7 @@ class Component
 public:
 	Component();
 
-	Component(Actor*, const char*);
+	Component(const char*);
 
 	virtual ~Component();
 	
@@ -17,16 +17,26 @@ public:
 	/// Returns the actor that owns the component
 	/// </summary>
 	/// <returns></returns>
+	/// 
 	Actor* getOwner() { return m_owner; }
+
+	/// <summary>
+	/// Assigns the owner of this component if it doesn't already have one
+	/// </summary>
+	/// <param name="owner">The new owner of this component</param>
+	void assignOwner(Actor* owner) { if (!getOwner()) m_owner = owner; }
 
 	/// <summary>
 	/// Returns the component's name
 	/// </summary>
-	/// <returns></returns>
 	const char* getName() { return m_name; }
 
+	/// <summary>
+	/// Returns whether or not the component has been started
+	/// </summary>
+	bool getStarted() { return m_started; }
 
-
+	//Functions called by actor class:
 	/// <summary>
 	/// Called whenever the component is added onto its owner
 	/// </summary>
@@ -35,7 +45,7 @@ public:
 	/// <summary>
 	/// Called every frame by the owner
 	/// </summary>
-	/// <param name="deltaTime"></param>
+	/// <param name="deltaTime">The time that has passed between frames</param>
 	virtual void update(float deltaTime) {}
 
 	/// <summary>
@@ -53,6 +63,11 @@ public:
 	/// </summary>
 	/// <param name="actor"></param>
 	virtual void onCollision(Actor* actor) {}
+
+	/// <summary>
+	/// Called whenever the component is deleted
+	/// </summary>
+	virtual void onDestroy() {};
 
 private:
 	/// <summary>

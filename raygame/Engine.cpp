@@ -3,6 +3,7 @@
 #include "Transform2D.h"
 #include "Player.h"
 #include "Enemy.h"
+#include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -30,8 +31,8 @@ void Engine::start()
 
 	Scene* scene = new Scene();
 	
-	Player* player = new Player(10, 10, "player", 400, 10);
-	Enemy* enemy = new Enemy(10, 100, "enemy", 200, 10, player);
+	Player* player = new Player(10, 10, "player", 100, 10);
+	Enemy* enemy = new Enemy(10, 100, "enemy", 60, 10, player);
 	scene->addActor(player);
 	scene->addActor(enemy);
 
@@ -77,7 +78,8 @@ void Engine::run()
 	while (!m_applicationShouldClose && !RAYLIB_H::WindowShouldClose())
 	{
 		//Calculate deltatime
-		float deltaTime = RAYLIB_H::GetFrameTime() / 1000;
+		float deltaTime = RAYLIB_H::GetFrameTime();
+		std::cout << deltaTime;
 
 		//Update scene
 		update(deltaTime);

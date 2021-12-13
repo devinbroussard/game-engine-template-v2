@@ -26,6 +26,8 @@ void Character::start()
 	addComponent(moveComponent);
 	SpriteComponent* spriteComponent = new SpriteComponent("Sprites/player.png", this);
 	addComponent(spriteComponent);
+
+	Actor::start();
 }
 
 /// <summary>

@@ -3,7 +3,7 @@
 #include "Transform2D.h"
 
 InputComponent::InputComponent(Actor* owner) :
-	Component::Component(owner, "Input Component")
+	Component::Component("Input Component")
 {}
 
 MathLibrary::Vector2 InputComponent::getMoveAxis()

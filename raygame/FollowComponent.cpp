@@ -4,7 +4,7 @@
 #include "Transform2D.h"
 
 FollowComponent::FollowComponent(Actor* owner, const char* name, Actor* targetActor) :
-	Component::Component(owner, name)
+	Component::Component(                                                                                                                                                            name)
 {
 	m_targetActor = targetActor;
 }
