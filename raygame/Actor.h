@@ -25,8 +25,7 @@ public:
     /// <summary>
     /// Gets the collider attached to this actor
     /// </summary>
-    template<typename T>
-    T* getCollider() { return m_collider; }
+    Collider* getCollider() { return m_collider; }
 
     /// <summary>
     /// Sets this actors collider
@@ -130,12 +129,91 @@ private:
 };
 
 template<typename T>
-inline T* Actor::getComponent()
+inline T* Actor::addComponent()
 {
+    T* component = new T();
+
+    Actor* owner = component->getOwner();
+    if (owner) return nullptr;
+
+    component->assignOwner(this);
+    Component** tempArray = new Component * [m_componentCount + 1];
+
+    int j = 0;
     for (int i = 0; i < m_componentCount; i++)
     {
-        if (strcmp(m_components[i]->getName(), name) == 0)
-            return m_components[i];
+        tempArray[i] = m_components[i];
+        j++;
     }
+
+    //Set the last value in the new array to be the actor we want to add
+    tempArray[j] = component;
+
+    if (m_componentCount > 1)
+        //Set old array to hold the values of the new array
+        delete[] m_components;
+    else if (m_componentCount == 1)
+        delete m_components;
+
+    m_componentCount++;
+    m_components = tempArray;
+
+    return (T*)component;
+}
+
+template<typename T>
+inline bool Actor::removeComponent()
+{
+    bool componentRemoved = false;
+    //Create a new array with a size one less than our old array
+    Component** newArray = new Component * [m_componentCount - 1];
+    T* temp;
+    //Create variable to access tempArray index
+    int j = 0;
+    //Copy values from the old array to the new array
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        T* temp = dynamic_cast<T*>(m_components[i]);
+
+        if (!temp)
+        {
+            newArray[j] = m_components[i];
+            j++;
+        }
+        else
+        {
+            componentRemoved = true;
+        }
+    }
+    //Set the old array to the new array
+    if (componentRemoved)
+    {
+        delete[] m_components;
+        m_components = newArray;
+        m_componentCount--;
+        delete temp;
+    }
+    else
+        delete[] newArray;
+
+    //Return whether or not the removal was successful
+    return componentRemoved;
+}
+
+template<typename T>
+inline T* Actor::getComponent()
+{
+    //For each component in the components array...
+    for (int i = 0; i < m_componentCount; i++) {
+        //...try casting the component as the given type...
+        T* temp = dynamic_cast<T*>(m_components[i]);
+        //...and if successful...
+        if (temp)
+            //...return the component
+
+            return (T*)m_components[i];
+    }
+
+    //Returns nulllptr if no component matched
     return nullptr;
 }

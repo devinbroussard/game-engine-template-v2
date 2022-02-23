@@ -101,55 +101,6 @@ bool Actor::removeComponent(Component* component)
     return componentRemoved;
 }
 
-bool Actor::removeComponent(const char* name)
-{
-    if (!name) return false;
-    bool componentRemoved = false;
-    Component* componentToDelete = nullptr;
-
-    //Create a new array with a size one less than our old array
-    Component** newArray = new Component * [m_componentCount - 1];
-  
-    //Create variable to access tempArray index
-    int j = 0;
-    //Copy values from the old array to the new array
-    for (int i = 0; i < m_componentCount; i++)
-    {
-        if (strcmp(m_components[i]->getName(), name) == 0)
-        {
-            newArray[j] = m_components[i];
-            j++;
-        }
-        else
-        {
-            componentToDelete = m_components[i];
-            componentRemoved = true;
-        }
-    }
-    //Set the old array to the new array
-    if (componentRemoved)
-    {
-        delete[] m_components;
-        m_components = newArray;
-        m_componentCount--;
-        delete componentToDelete;
-    }
-    else 
-        delete[] newArray;
-    //Return whether or not the removal was successful
-    return componentRemoved;
-}
-
-Component* Actor::getComponent(const char* name)
-{
-    for (int i = 0; i < m_componentCount; i++)
-    {
-        if (strcmp(m_components[i]->getName(), name) == 0)
-            return m_components[i];
-    }
-    return nullptr;
-}
-
 void Actor::update(float deltaTime)
 {
     for (int i = 0; i < m_componentCount; i++)
