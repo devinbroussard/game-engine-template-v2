@@ -25,7 +25,8 @@ public:
     /// <summary>
     /// Gets the collider attached to this actor
     /// </summary>
-    Collider* getCollider() { return m_collider; }
+    template<typename T>
+    T* getCollider() { return m_collider; }
 
     /// <summary>
     /// Sets this actors collider
@@ -90,6 +91,9 @@ public:
     /// <param componentName="component"></param>
     /// <returns></returns>
     Component* addComponent(Component* component);
+    
+    template<typename T>
+    T* addComponent();
 
     /// <summary>
     /// Removes a component from the actor's components array if the component pointer matches the given pointer
@@ -103,13 +107,16 @@ public:
     /// </summary>
     /// <param componentName="componentName">The componentName of the component pointer you wish to delete</param>
     /// <returns>Whether or no thte component was removed from the array</returns>
-    bool removeComponent(const char* componentName);
+    template<typename T>
+    bool removeComponent();
 
     /// <summary>
     /// Creates a component pointer from the pointer in the actor's array that matches the componentName given
     /// </summary>
     /// <param componentName="componentName">The componentName of the component you wish to get</param>
-    Component* getComponent(const char* componentName);
+    template<typename T>
+    T* getComponent();
+
 
 protected:
     const char* m_name;
@@ -122,3 +129,13 @@ private:
     unsigned int m_componentCount;
 };
 
+template<typename T>
+inline T* Actor::getComponent()
+{
+    for (int i = 0; i < m_componentCount; i++)
+    {
+        if (strcmp(m_components[i]->getName(), name) == 0)
+            return m_components[i];
+    }
+    return nullptr;
+}

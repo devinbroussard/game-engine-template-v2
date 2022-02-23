@@ -1,10 +1,11 @@
 #pragma once
+#include <exception>
 
 template<typename T>
 class DynamicArray {
 public:
-	DynamicArray();
-	~DynamicArray();
+	DynamicArray(); //Initializes variables
+	~DynamicArray(); //Deallocates memory from the dynamic array
 	void addItem(T item);
 	void addItem(T item[], int size);
 	bool removeItem(T item);
@@ -13,6 +14,7 @@ public:
 	bool contains(T item);
 	int getLength();
 
+	T operator[](int index);
 private:
 	T* m_items;
 	int m_length;
@@ -126,4 +128,15 @@ inline bool DynamicArray<T>::contains(T item)
 template<typename T>
 inline int DynamicArray<T>::getLength() {
 	return m_length;
+}
+
+template<typename T>
+inline T DynamicArray<T>::operator[](int index)
+{
+	if (index > 0 || index < getLength()) {
+		return m_items[index];
+	}
+	
+	//Throws an exception in the case that the item isn't in the list
+	throw std::exception("Index was outside the bounds of the array"); 
 }
