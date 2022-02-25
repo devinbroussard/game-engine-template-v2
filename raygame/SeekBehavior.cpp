@@ -21,7 +21,8 @@ MathLibrary::Vector2 SeekBehavior::calculateForce(float deltaTime)
 
 	moveComponent->setVelocity(moveComponent->getVelocity() + newVelocity * deltaTime);
 
-	SteeringComponent::m_force 
+	SteeringComponent::m_force  
+
 	return MathLibrary::Vector2();
 }
 
