@@ -1,6 +1,8 @@
 #pragma once
 #include "Actor.h"
 #include "DynamicArray.h"
+#include <Vector2.h>
+
 class MoveComponent;
 class SteeringBehavior;
 
@@ -12,8 +14,8 @@ public:
 
 	//Returns the target variable
 	Actor* getTarget() { return m_target; } 
-	float getForce();
-	void setForce(float force);
+	MathLibrary::Vector2 getForce() { return m_force; }
+	void setForce(MathLibrary::Vector2 force) { m_force = force; }
 
 	void start() override;
 	void update(float deltaTime) override;
@@ -26,6 +28,6 @@ private:
 	float m_maxForce;
 	float m_maxVelocity;
 	MoveComponent* m_moveComponent;
-	float m_force;
+	MathLibrary::Vector2 m_force;
 };
 

@@ -36,7 +36,7 @@ void WanderBehavior::update(float deltaTime)
 
 	m_angle = angle;
 
-	MoveComponent* moveComponent = dynamic_cast<MoveComponent*>(getOwner()->getComponent<MoveComponent*>());
+	MoveComponent* moveComponent = dynamic_cast<MoveComponent*>(getOwner()->getComponent<MoveComponent>());
 
 	getOwner()->getTransform()->setForward(m_angle);
 

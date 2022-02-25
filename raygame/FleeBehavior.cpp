@@ -15,7 +15,7 @@ void FleeBehavior::update(float deltaTime)
 	MathLibrary::Vector2 direction =
 		(getOwner()->getTransform()->getWorldPosition() - getTarget()->getTransform()->getWorldPosition()).getNormalized() * m_force;
 
-	MoveComponent* moveComponent = dynamic_cast<MoveComponent*>(getOwner()->getComponent("MoveComponent"));
+	MoveComponent* moveComponent = getOwner()->getComponent<MoveComponent>();
 
 	MathLibrary::Vector2 newVelocity = direction - moveComponent->getVelocity();
 

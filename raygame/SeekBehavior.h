@@ -1,23 +1,26 @@
 #pragma once
-#include "Component.h"
+#include "SteeringComponent.h"
 class MoveComponent;
 class Agent;
 
 class SeekBehavior  : 
-	public Component {
+	public SteeringComponent {
 public:
-	SeekBehavior(Actor* m_target); //Assigns a value to the m_target variable
+	SeekBehavior(Actor* m_target, float seekForce); //Assigns a value to the m_target variable
 	~SeekBehavior() {}//Deallocates memory 
 
 	void setTarget(Actor* target) { m_target = target; } //Changes the m_target variable
 	Actor* getTarget() const { return m_target;} //Returns the m_target variable
 
-	void setForce(float force) { m_force = force; } //Changes the m_force variable
+	void setForce(float force) { m_seekForce = force; } //Changes the m_seekForce variable
+	float getForce() { return m_seekForce; } //Returns the current value of the m_seekForce variable
+
+	MathLibrary::Vector2 calculateForce(float deltaTime) override;
 
 	void update(float deltaTime) override; //Called every frame to change the owner's velocity
 
 private:
 	Actor* m_target; //The actor that the owner will seek
-	float m_force; //The force that is applied to the owner every second
+	float m_seekForce; //The seekForce scalar that is applied when seeking a target
 };
 
