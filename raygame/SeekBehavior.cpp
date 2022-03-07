@@ -22,8 +22,3 @@ MathLibrary::Vector2 SeekBehavior::calculateForce(float deltaTime)
 	//moveComponent->setVelocity(moveComponent->getVelocity() + newVelocity * deltaTime);
 	return newVelocity; //Returns the velocity
 }
-
-void SeekBehavior::update(float deltaTime)
-{
-
-}

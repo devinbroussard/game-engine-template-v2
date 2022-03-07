@@ -6,7 +6,7 @@ class Player :
 	public Character
 {
 public:
-	Player(float x, float y, const char* name, float speed, int maxHealth);
+	Player(float x, float y, const char* name, float speed, int maxHealth, float maxForce);
 	~Player() {};
 
 	void start() override;

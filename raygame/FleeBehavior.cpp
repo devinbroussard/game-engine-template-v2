@@ -23,14 +23,3 @@ MathLibrary::Vector2 FleeBehavior::calculateForce(float deltaTime) {
 
 	return newVelocity;
 }
-
-void FleeBehavior::update(float deltaTime) {
-	MathLibrary::Vector2 direction =
-		(getOwner()->getTransform()->getWorldPosition() - getTarget()->getTransform()->getWorldPosition()).getNormalized() * m_fleeForce;
-
-	MoveComponent* moveComponent = getOwner()->getComponent<MoveComponent>();
-
-	MathLibrary::Vector2 newVelocity = direction - moveComponent->getVelocity();
-
-	moveComponent->setVelocity(moveComponent->getVelocity() + newVelocity * deltaTime);
-}

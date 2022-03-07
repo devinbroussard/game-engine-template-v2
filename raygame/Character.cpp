@@ -3,8 +3,8 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 
-Character::Character(float x, float y, const char* name, float speed, int maxHealth) :
-	Actor::Actor(x, y, name)
+Character::Character(float x, float y, const char* name, float speed, int maxHealth, float maxForce) :
+	Agent(x, y, name, maxForce, speed)
 {
 	m_speed = speed;
 	m_firingCooldown = 0.3f;
@@ -25,7 +25,6 @@ void Character::setVelocity(float x, float y)
 void Character::start()
 {
 	HealthComponent* healthComponent = dynamic_cast<HealthComponent*>(addComponent(new HealthComponent(m_maxHealth, this)));
-	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
 	SpriteComponent* spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("Sprites/player.png")));
 
 	Actor::start();
@@ -37,6 +36,7 @@ void Character::start()
 /// <param name="deltaTime">The amount of time that has passed between frames</param>
 void Character::update(float deltaTime)
 {
+	Agent::update(deltaTime);
 	Actor::update(deltaTime);
 }
 

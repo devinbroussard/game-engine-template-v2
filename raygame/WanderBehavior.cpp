@@ -6,16 +6,16 @@
 #include <iostream>
 #include "MoveComponent.h"
 
-WanderBehavior::WanderBehavior(float radius, float distance)
-{
+WanderBehavior::WanderBehavior(float radius, float distance, float wanderForce) 
+: SteeringComponent(){
 	std::srand((time(NULL)));
 	m_radius = radius;
 	m_distance = distance;
-	m_force = 50;
+	m_wanderForce = wanderForce;
 	m_angle = { 0, 0 };
 }
 
-void WanderBehavior::update(float deltaTime)
+MathLibrary::Vector2 WanderBehavior::calculateForce(float deltaTime)
 {
 	MathLibrary::Vector2 circlePos = getOwner()->getTransform()->getWorldPosition() + (getOwner()->getTransform()->getForward() * m_distance);
 
@@ -26,7 +26,7 @@ void WanderBehavior::update(float deltaTime)
 	randomPnt = randomPnt + circlePos;
 
 	MathLibrary::Vector2 angle =
-		(randomPnt - getOwner()->getTransform()->getWorldPosition()).getNormalized() * m_force;
+		(randomPnt - getOwner()->getTransform()->getWorldPosition()).getNormalized() * m_wanderForce;
 
 	//if ((m_angle - angle).getMagnitude() < 0.5f)
 	//	angle = angle + MathLibrary::Vector2(0.2f, 0.8f);
@@ -39,5 +39,6 @@ void WanderBehavior::update(float deltaTime)
 
 	MathLibrary::Vector2 newVelocity = m_angle - moveComponent->getVelocity();
 
-	moveComponent->setVelocity(moveComponent->getVelocity() + newVelocity * deltaTime);
+	// moveComponent->setVelocity(moveComponent->getVelocity() + newVelocity * deltaTime);
+	return newVelocity;
 }

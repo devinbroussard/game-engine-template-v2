@@ -1,13 +1,13 @@
 #pragma once
-#include "Actor.h"
+#include "Agent.h"
 #include <Vector2.h>
 class MoveComponent;
 
 class Character :
-	public Actor
+	public Agent
 {
 public:
-	Character(float x, float y, const char* name, float speed, int maxHealth);
+	Character(float x, float y, const char* name, float speed, int maxHealth, float maxForce);
 	~Character();
 
 	void setVelocity(float x, float y);

@@ -16,8 +16,6 @@ public:
 
 	MathLibrary::Vector2 calculateForce(float deltaTime) override;
 
-	void update(float deltaTime) override; //Called every frame to change the owner's velocity
-
 private:
 	Actor* m_target; //The actor that the owner will seek
 	float m_seekForce; //The seekForce scalar that is applied when seeking a target

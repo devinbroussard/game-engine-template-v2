@@ -1,6 +1,7 @@
 #include "InputComponent.h"
 #include "Actor.h"
 #include "Transform2D.h"
+#include "MoveComponent.h"
 
 InputComponent::InputComponent(Actor* owner) :
 	Component::Component("Input Component")
@@ -18,5 +19,6 @@ MathLibrary::Vector2 InputComponent::getMoveAxis()
 
 void InputComponent::update(float deltaTime)
 {
-	getOwner()->getTransform()->setForward(getMoveAxis());
+	if (getMoveAxis().getMagnitude() > 0)
+		getOwner()->getTransform()->setForward(getMoveAxis());
 }

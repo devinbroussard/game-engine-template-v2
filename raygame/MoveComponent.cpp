@@ -4,9 +4,9 @@
 #include "Character.h"
 #include "Engine.h"
 
-MoveComponent::MoveComponent(const char* name) : Component::Component(name)
+MoveComponent::MoveComponent(float maxSpeed, const char* name) : Component::Component(name)
 {
-	m_maxSpeed = 200;
+	m_maxSpeed = maxSpeed;
 	m_velocity = MathLibrary::Vector2(0, 0);
 }
 
@@ -34,8 +34,8 @@ void MoveComponent::update(float deltaTime)
 	MathLibrary::Vector2 newPosition = MathLibrary::Vector2((oldPosition.x + (m_velocity.x * deltaTime)),
 		(oldPosition.y + (m_velocity.y * deltaTime)));
 
-	if (newPosition.getMagnitude() > 0)
-		getOwner()->getTransform()->setForward(newPosition.getNormalized());
+	if (getVelocity().getMagnitude() > 0)
+		getOwner()->getTransform()->setForward(getVelocity());
 
 	if (newPosition.getMagnitude() > 0)
 		getOwner()->getTransform()->setLocalPosition(newPosition);

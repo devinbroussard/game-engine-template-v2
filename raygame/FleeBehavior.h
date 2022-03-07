@@ -17,8 +17,6 @@ public:
 
 	MathLibrary::Vector2 calculateForce(float deltaTime) override; 
 
-	void update(float deltaTime) override;
-
 private:
 	Actor* m_target;
 	float m_fleeForce;

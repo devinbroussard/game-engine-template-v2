@@ -90,6 +90,8 @@ public:
     /// <param componentName="component"></param>
     /// <returns></returns>
     Component* addComponent(Component* component);
+
+    virtual void onAddComponent(Component* component) {} //Checks to see what component was added, and acts accordingly
     
     template<typename T>
     T* addComponent();
@@ -210,7 +212,6 @@ inline T* Actor::getComponent()
         //...and if successful...
         if (temp)
             //...return the component
-
             return (T*)m_components[i];
     }
 

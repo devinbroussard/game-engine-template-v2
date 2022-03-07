@@ -5,7 +5,7 @@ class Enemy :
 	public Character
 {
 public:
-	Enemy(float x, float y, const char* name, float speed, int maxHealth, Actor* targetActor);
+	Enemy(float x, float y, const char* name, float speed, int maxHealth, float maxForce, Actor* targetActor);
 	~Enemy() {}
 
 	void start() override;
