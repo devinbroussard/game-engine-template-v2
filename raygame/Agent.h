@@ -4,30 +4,28 @@
 #include <Vector2.h>
 
 class MoveComponent;
-class SteeringBehavior;
+class SteeringComponent;
+class MoveComponent;
 
 class Agent :
 	public Actor {
 public:
-	Agent();
-	~Agent();
+	Agent(); //Sets default values to variables
+	Agent(float maxForce); //Sets the max force to the value given
+	~Agent() {} //Deallocates memory used in agent
 
-	//Returns the target variable
-	Actor* getTarget() { return m_target; } 
-	MathLibrary::Vector2 getForce() { return m_force; }
-	void setForce(MathLibrary::Vector2 force) { m_force = force; }
+	MathLibrary::Vector2 getForce() { return m_force; } //Returns the current force vector
+	void setForce(MathLibrary::Vector2 force) { m_force = force; } //Changes the force to the force given
+	MoveComponent* getMoveComponent() { return m_moveComponent; } //Returns a pointer to the move component
 
-	void start() override;
-	void update(float deltaTime) override;
-	void onAddComponent(Component* component);
+	virtual void start() override { Actor::start(); } //Calls the Actor's start function
+	virtual void update(float deltaTime) override {} //Gets the sum of all forces acting on the agent and applies it to its velocity
+	virtual void onAddComponent(Component* component); //Checks to see what component was added, and acts accordingly
 
 private:
-	DynamicArray<SteeringBehavior*> m_steeringBehaviors;
-	//An actor that the agent will seek or flee from
-	Actor* m_target;
-	float m_maxForce;
-	float m_maxVelocity;
-	MoveComponent* m_moveComponent;
-	MathLibrary::Vector2 m_force;
+	DynamicArray<SteeringComponent*> m_steeringBehaviors; //An array holding this agent's steering behaviors
+	float m_maxForce; //The magnitude that the m_force vector will be capped at
+	MoveComponent* m_moveComponent; //A pointer to this agent's move component
+	MathLibrary::Vector2 m_force; //The sum of all the forces acting on this agent
 };
 

@@ -1,7 +1,6 @@
 #pragma once
 #include "SteeringComponent.h"
 class MoveComponent;
-class Agent;
 
 class SeekBehavior  : 
 	public SteeringComponent {

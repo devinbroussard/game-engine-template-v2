@@ -7,7 +7,11 @@ class SteeringComponent :
 public:
 	SteeringComponent(Actor* target); //Assigns a target to the m_target variable
 
-	virtual MathLibrary::Vector2 calculateForce(float deltaTime) {} //Calculates the force that will be applied to the actor and returns it
+	Actor* getTarget() { return m_target; } //Returns the current target
+	void setTarget(Actor* target) { m_target = target; } //Changes the target to the one given
+
+	//Calculates the force that will be applied to the actor and returns it
+	virtual MathLibrary::Vector2 calculateForce(float deltaTime) { return { 0, 0 }; } 
 
 private:
 	MathLibrary::Vector2 m_force; //The force that will be applied to the player

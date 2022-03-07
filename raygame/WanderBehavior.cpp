@@ -17,16 +17,13 @@ WanderBehavior::WanderBehavior(float radius, float distance)
 
 void WanderBehavior::update(float deltaTime)
 {
-
 	MathLibrary::Vector2 circlePos = getOwner()->getTransform()->getWorldPosition() + (getOwner()->getTransform()->getForward() * m_distance);
 
-	float randX = (rand() % 400) - 200;
-	float randY = (rand() % 400) - 200;
+	float randNum = (rand() % 400) - 200;
+	MathLibrary::Vector2 randPos = { cos(randNum), sin(randNum) };
 
-
-	MathLibrary::Vector2 randomPnt = MathLibrary::Vector2(randX, randY).getNormalized() * m_radius; 
+	MathLibrary::Vector2 randomPnt = randPos.getNormalized() * m_radius;
 	randomPnt = randomPnt + circlePos;
-
 
 	MathLibrary::Vector2 angle =
 		(randomPnt - getOwner()->getTransform()->getWorldPosition()).getNormalized() * m_force;
