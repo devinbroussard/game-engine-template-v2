@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include <Vector2.h>
+#include "Agent.h"
 
 class SteeringComponent :
 	public Component {
@@ -10,6 +11,7 @@ public:
 
 	Actor* getTarget() { return m_target; } //Returns the current target
 	void setTarget(Actor* target) { m_target = target; } //Changes the target to the one given
+	Agent* getAgent() { return (Agent*)getOwner(); }
 
 	//Calculates the force that will be applied to the actor and returns it
 	virtual MathLibrary::Vector2 calculateForce(float deltaTime) abstract;

@@ -21,6 +21,5 @@ private:
 	float m_radius;
 	float m_distance;
 	float m_wanderForce;
-	MathLibrary::Vector2 m_angle;
 };
 
