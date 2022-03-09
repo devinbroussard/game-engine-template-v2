@@ -16,6 +16,7 @@ WanderBehavior::WanderBehavior(float radius, float distance, float wanderForce)
 
 MathLibrary::Vector2 WanderBehavior::calculateForce(float deltaTime)
 {
+
 	MathLibrary::Vector2 circlePos = getOwner()->getTransform()->getWorldPosition() + (getOwner()->getTransform()->getForward() * m_distance);
 
 	float randNum = (rand() % 400) - 200;
@@ -30,11 +31,8 @@ MathLibrary::Vector2 WanderBehavior::calculateForce(float deltaTime)
 	//if ((m_angle - angle).getMagnitude() < 0.5f)
 	//	angle = angle + MathLibrary::Vector2(0.2f, 0.8f);
 
-	angle ;
-
-
-
-	getOwner()->getTransform()->setForward(angle);
+	if ((angle * m_wanderForce).getMagnitude() > 0)
+		getOwner()->getTransform()->setForward(angle);
 
 	MathLibrary::Vector2 newVelocity = (angle * m_wanderForce) - getAgent()->getMoveComponent()->getVelocity();
 

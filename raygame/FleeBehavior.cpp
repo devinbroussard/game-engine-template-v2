@@ -12,6 +12,9 @@ FleeBehavior::FleeBehavior(Actor* target, float fleeForce)
 }
 
 MathLibrary::Vector2 FleeBehavior::calculateForce(float deltaTime) {
+	//if (m_fleeForce == 0)
+	//	return { 0, 0 };
+
 	MathLibrary::Vector2 direction =
 		(getOwner()->getTransform()->getWorldPosition() - getTarget()->getTransform()->getWorldPosition()).getNormalized() * m_fleeForce;
 

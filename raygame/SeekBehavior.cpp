@@ -12,6 +12,9 @@ SeekBehavior::SeekBehavior(Actor* target, float force)
 
 MathLibrary::Vector2 SeekBehavior::calculateForce(float deltaTime)
 {
+	//if (m_seekForce == 0)
+	//	return { 0, 0 };
+
 	MathLibrary::Vector2 direction =
 		(getTarget()->getTransform()->getWorldPosition() - getOwner()->getTransform()->getWorldPosition()).getNormalized() * m_seekForce;
 

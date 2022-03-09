@@ -34,7 +34,7 @@ void MoveComponent::update(float deltaTime)
 	MathLibrary::Vector2 newPosition = MathLibrary::Vector2((oldPosition.x + (m_velocity.x * deltaTime)),
 		(oldPosition.y + (m_velocity.y * deltaTime)));
 
-	if (getVelocity().getMagnitude() > 0)
+	if (getVelocity().getMagnitude() > 20)
 		getOwner()->getTransform()->setForward(getVelocity());
 
 	if (newPosition.getMagnitude() > 0)
