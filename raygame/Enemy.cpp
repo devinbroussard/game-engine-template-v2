@@ -15,7 +15,7 @@ void Enemy::start()
 	//addComponent(seekBehavior);
 	//onAddComponent(seekBehavior);
 
-	WanderBehavior* wanderBehavior = new WanderBehavior(20, 20, 20);
+	WanderBehavior* wanderBehavior = new WanderBehavior(20, 20, 80);
 	addComponent(wanderBehavior);
 	onAddComponent(wanderBehavior);
 }
