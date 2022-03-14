@@ -95,26 +95,32 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="MainScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Agent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Actors</Filter>
     </ClCompile>
     <ClCompile Include="FleeBehavior.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="MainScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="SeekBehavior.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WanderBehavior.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SteeringComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
     </ClCompile>
     <ClCompile Include="StateMachineComponent.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringComponent.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderBehavior.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Decision.cpp">
+      <Filter>Source Files\Math/Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="BooleanDecision.cpp">
+      <Filter>Source Files\Math/Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,23 +178,29 @@
     <ClInclude Include="MainScene.h">
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>Header Files\Actors</Filter>
+    </ClInclude>
     <ClInclude Include="FleeBehavior.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="SeekBehavior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WanderBehavior.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Agent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SteeringComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="StateMachineComponent.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderBehavior.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Decision.h">
+      <Filter>Header Files\Math/Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="BooleanDecision.h">
+      <Filter>Header Files\Math/Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
