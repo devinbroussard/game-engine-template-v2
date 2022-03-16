@@ -8,6 +8,7 @@ public:
 	Enemy(float x, float y, const char* name, float speed, int maxHealth, float maxForce, Actor* targetActor);
 	~Enemy() {}
 
+	bool getTargetInView();
 	bool getTargetInRange();
 	bool getIsAggressive() { return m_isAggressive; }
 	void setIsAggressive(bool value) { m_isAggressive = value; }
