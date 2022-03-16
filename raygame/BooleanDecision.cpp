@@ -1,8 +1,8 @@
 #include "BooleanDecision.h"
 
-BooleanDecision::BooleanDecision(Decision* leftChild, Decision* rightChild) {
-	m_isFalse = leftChild;
-	m_isTrue = rightChild;
+BooleanDecision::BooleanDecision(Decision* falseChild, Decision* trueChild) {
+	m_isFalse = falseChild;
+	m_isTrue = trueChild;
 }
 
 void BooleanDecision::makeDecision(Agent* agent, float deltaTime)

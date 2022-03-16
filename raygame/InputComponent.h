@@ -13,6 +13,8 @@ public:
 	void update(float deltaTime) override;
 
 private:
+	MathLibrary::Vector2 m_forwardDirection;
+
 	RAYLIB_H::KeyboardKey m_forward = RAYLIB_H::KeyboardKey::KEY_W;
 	RAYLIB_H::KeyboardKey m_left = RAYLIB_H::KeyboardKey::KEY_A;
 	RAYLIB_H::KeyboardKey m_back = RAYLIB_H::KeyboardKey::KEY_S;

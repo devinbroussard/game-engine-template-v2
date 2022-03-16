@@ -4,8 +4,9 @@
 #include "MoveComponent.h"
 
 InputComponent::InputComponent(Actor* owner) :
-	Component::Component("Input Component")
-{}
+	Component::Component("Input Component") {
+	m_forwardDirection = { 0, 0 };
+}
 
 MathLibrary::Vector2 InputComponent::getMoveAxis()
 {
@@ -13,12 +14,11 @@ MathLibrary::Vector2 InputComponent::getMoveAxis()
 	float xDirection = -RAYLIB_H::IsKeyDown(KEY_A) + RAYLIB_H::IsKeyDown(KEY_D);
 	float yDirection = RAYLIB_H::IsKeyDown(KEY_S) - RAYLIB_H::IsKeyDown(KEY_W);
 
+	m_forwardDirection = MathLibrary::Vector2(xDirection, yDirection);
+
 	//Return a new vector representing the move direction
-	return MathLibrary::Vector2(xDirection, yDirection);
+	return m_forwardDirection;
 }
 
 void InputComponent::update(float deltaTime)
-{
-	if (getMoveAxis().getMagnitude() > 0)
-		getOwner()->getTransform()->setForward(getMoveAxis());
-}
+{ }

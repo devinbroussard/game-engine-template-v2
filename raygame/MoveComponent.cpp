@@ -34,8 +34,17 @@ void MoveComponent::update(float deltaTime)
 	MathLibrary::Vector2 newPosition = MathLibrary::Vector2((oldPosition.x + (m_velocity.x * deltaTime)),
 		(oldPosition.y + (m_velocity.y * deltaTime)));
 
-	if (getVelocity().getMagnitude() > 20)
-		getOwner()->getTransform()->setForward(getVelocity());
+	//Changes the forward position of this actor to match its velocity
+	if (getVelocity().getMagnitude() > 20) {
+		MathLibrary::Vector2 currentForward = getOwner()->getTransform()->getForward();
+		MathLibrary::Vector2 direction = getVelocity() - currentForward;
+
+		if (direction.getMagnitude() > 0) {
+			currentForward = currentForward + direction * deltaTime * 0.1;
+			getOwner()->getTransform()->setForward(currentForward);
+		}
+	}
+
 
 	if (newPosition.getMagnitude() > 0)
 		getOwner()->getTransform()->setLocalPosition(newPosition);

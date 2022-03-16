@@ -18,9 +18,6 @@
     <Filter Include="Header Files\Scenes">
       <UniqueIdentifier>{24512f4f-e40a-422e-95dc-5ab040f726de}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Math/Engine">
-      <UniqueIdentifier>{04958672-67a8-4474-a475-a6d138dfed9f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Collider">
       <UniqueIdentifier>{cb61c963-108b-46a6-aec7-b609a087b0c5}</UniqueIdentifier>
     </Filter>
@@ -30,31 +27,37 @@
     <Filter Include="Source Files\Actors">
       <UniqueIdentifier>{ede5973a-ef42-4f5a-8d68-2ec85e30bfda}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Math/Engine">
-      <UniqueIdentifier>{f3984bd2-3ace-4feb-8ac9-ded9f34a4b11}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Collider">
       <UniqueIdentifier>{1b734e53-af16-42d3-b2c7-729bf606d48f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{ddf2c317-9c37-4e8c-ab33-97f61890fa99}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Sprites">
-      <UniqueIdentifier>{5fadd7d6-6053-4f67-a1db-adf6bd9482d4}</UniqueIdentifier>
+    <Filter Include="Source Files\Misc.">
+      <UniqueIdentifier>{f3984bd2-3ace-4feb-8ac9-ded9f34a4b11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Misc.">
+      <UniqueIdentifier>{04958672-67a8-4474-a475-a6d138dfed9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Decision">
+      <UniqueIdentifier>{02b017f9-7eff-4a59-8306-723752ca6c38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Decision">
+      <UniqueIdentifier>{eb7ff64e-d449-4ce2-8e12-d287cec391af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Transform2D.cpp">
-      <Filter>Source Files\Math/Engine</Filter>
+      <Filter>Source Files\Misc.</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files\Math/Engine</Filter>
+      <Filter>Source Files\Misc.</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
-      <Filter>Source Files\Math/Engine</Filter>
+      <Filter>Source Files\Misc.</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
       <Filter>Source Files\Collider</Filter>
@@ -116,11 +119,29 @@
     <ClCompile Include="WanderBehavior.cpp">
       <Filter>Source Files\Components</Filter>
     </ClCompile>
-    <ClCompile Include="Decision.cpp">
-      <Filter>Source Files\Math/Engine</Filter>
+    <ClCompile Include="InRangeDecision.cpp">
+      <Filter>Source Files\Decision</Filter>
     </ClCompile>
     <ClCompile Include="BooleanDecision.cpp">
-      <Filter>Source Files\Math/Engine</Filter>
+      <Filter>Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="Decision.cpp">
+      <Filter>Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="AggressiveDecision.cpp">
+      <Filter>Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="IdleDecision.cpp">
+      <Filter>Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="SeekDecision.cpp">
+      <Filter>Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderDecision.cpp">
+      <Filter>Source Files\Decision</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionComponent.cpp">
+      <Filter>Source Files\Decision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,10 +149,10 @@
       <Filter>Header Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Transform2D.h">
-      <Filter>Header Files\Math/Engine</Filter>
+      <Filter>Header Files\Misc.</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
-      <Filter>Header Files\Math/Engine</Filter>
+      <Filter>Header Files\Misc.</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>Header Files\Collider</Filter>
@@ -173,7 +194,7 @@
       <Filter>Header Files\Actors</Filter>
     </ClInclude>
     <ClInclude Include="DynamicArray.h">
-      <Filter>Header Files\Math/Engine</Filter>
+      <Filter>Header Files\Misc.</Filter>
     </ClInclude>
     <ClInclude Include="MainScene.h">
       <Filter>Header Files\Scenes</Filter>
@@ -196,22 +217,29 @@
     <ClInclude Include="WanderBehavior.h">
       <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="Decision.h">
-      <Filter>Header Files\Math/Engine</Filter>
+    <ClInclude Include="InRangeDecision.h">
+      <Filter>Header Files\Decision</Filter>
     </ClInclude>
     <ClInclude Include="BooleanDecision.h">
-      <Filter>Header Files\Math/Engine</Filter>
+      <Filter>Header Files\Decision</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\Sprites\bullet.png">
-      <Filter>Sprites</Filter>
-    </Image>
-    <Image Include="..\Sprites\enemy.png">
-      <Filter>Sprites</Filter>
-    </Image>
-    <Image Include="..\Sprites\player.png">
-      <Filter>Sprites</Filter>
-    </Image>
+    <ClInclude Include="Decision.h">
+      <Filter>Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="AggressiveDecision.h">
+      <Filter>Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="IdleDecision.h">
+      <Filter>Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderDecision.h">
+      <Filter>Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekDecision.h">
+      <Filter>Header Files\Decision</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionComponent.h">
+      <Filter>Header Files\Decision</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
